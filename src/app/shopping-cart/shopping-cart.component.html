@@ -1,0 +1,42 @@
+<br>
+<br>
+<br>
+
+<div class="shopping-cart-container">
+    <h2>Shopping Cart</h2>
+  
+    <form [formGroup]="itemForm" (ngSubmit)="addItem()">
+      <div class="form-group">
+        <label for="name">Item Name:</label>
+        <input type="text" id="name" formControlName="name" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" formControlName="quantity" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" id="price" formControlName="price" required>
+      </div>
+  
+      <button type="submit">Add to Cart</button>
+    </form>
+  
+    <div class="cart-items">
+      <h3>Cart Items:</h3>
+      <ul>
+        <li *ngFor="let item of cartItems">
+          {{ item.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.price }}
+          <button (click)="removeItem(item)">Remove</button>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="cart-total">
+      <h3>Cart Total:</h3>
+      <p>${{ cartTotal }}</p>
+    </div>
+  </div>
+  

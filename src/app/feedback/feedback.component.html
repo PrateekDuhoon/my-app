@@ -1,0 +1,44 @@
+<br>
+<br>
+<br>
+
+<div class="feedback-container">
+    <h2>Feedback Form</h2>
+    <form [formGroup]="feedbackForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name" required>
+        <div *ngIf="feedbackForm.get('name')?.invalid && feedbackForm.get('name')?.touched" class="error-message">
+          <span *ngIf="feedbackForm.get('name')?.hasError('required')">Name is required.</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email" required>
+        <div *ngIf="feedbackForm.get('email')?.invalid && feedbackForm.get('email')?.touched" class="error-message">
+          <span *ngIf="feedbackForm.get('email')?.hasError('required')">Email is required.</span>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" formControlName="message" required maxlength="250"></textarea>
+        <div class="character-counter">
+          {{ feedbackForm.get('message')?.value.length }} / 250 characters
+        </div>
+        <div *ngIf="feedbackForm.get('message')?.invalid && feedbackForm.get('message')?.touched" class="error-message">
+          <span *ngIf="feedbackForm.get('message')?.hasError('required')">Message is required.</span>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="feedbackForm.invalid || feedbackForm.get('message')?.value.length > 200">
+        Submit
+      </button>
+
+      <div *ngIf="" class="success-message">
+        Feedback recieved!
+      </div>
+    </form>
+  </div>
+  

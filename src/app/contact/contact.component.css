@@ -1,0 +1,25 @@
+:host {
+    display: block;
+  }
+  
+  .container {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid blue;
+    border-radius: 5px;
+  }
+  
+  h2 {
+    color: blue;
+  }
+  
+  p {
+    color: blue;
+    font-size: 25px;
+
+    text-align: center;
+  
+  
+  }
+  

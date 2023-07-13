@@ -1,0 +1,50 @@
+<br>
+<br>
+<br>
+
+<div class="container  p-5  text-center">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="bg-primary p-4 text-center">
+                <h2>Address Form</h2>
+            </div>
+            <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+                <div formArrayName="addresses">
+                    <div *ngFor="let address of addressControls.controls; let i=index" [formGroupName]="i">
+                        <br><b><i>
+                                <h3 style="color: blue;">Address {{ i + 1 }} :</h3>
+                            </i></b>
+                        <div class="street">
+                            <label><b>Street: </b></label>&nbsp;
+                            <input type="text" formControlName="street">
+                        </div><br>
+                        <div class="City">
+                            <label><b>City: </b></label>&nbsp;
+                            <input type="text" formControlName="city">
+                        </div><br>
+                        <div class="State">
+                            <label><b>State: </b></label>&nbsp;
+                            <input type="text" formControlName="state">
+                        </div><br>
+                        <div class="postalCode">
+                            <label><b>Postal Code: </b></label>&nbsp;
+                            <input type="text" formControlName="postalCode">
+                        </div><br>
+                        <div class="button">
+                            <button type="button" class="btn btn-primary" (click)="removeAddress(i)">Remove
+                                Address</button>&nbsp;
+                        </div>
+                    </div><br>
+                    <div class="button">
+                        <button type="button" class="btn btn-primary" (click)="addAddress()">Add
+                            Address</button>&nbsp;<br>
+                    </div>
+                    <div class="button">
+                        <br><button type="submit" class="btn btn-primary"
+                            [disabled]="addressForm.invalid|| addressControls.length< 1">Submit</button>&nbsp;<br>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<form [formGroup]="searchForm">
+    <input type="text" formControlName="searchQuery" placeholder="Search">
+  </form>
+  
+  <div *ngIf="searchResults">
+    <h3>Search Results:</h3>
+    <ul>
+      <li *ngFor="let result of searchResults">{{ result }}</li>
+    </ul>
+  </div>
+  
